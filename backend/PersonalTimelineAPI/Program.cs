@@ -75,12 +75,12 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowReactApp");
 
 // Add COOP and COEP headers for Google OAuth popup
-app.Use(async (context, next) =>
-{
-    context.Response.Headers.Add("Cross-Origin-Opener-Policy", "same-origin");
-    context.Response.Headers.Add("Cross-Origin-Embedder-Policy", "require-corp");
-    await next();
-});
+// app.Use(async (context, next) =>
+// {
+//     context.Response.Headers.Add("Cross-Origin-Opener-Policy", "same-origin");
+//     context.Response.Headers.Add("Cross-Origin-Embedder-Policy", "require-corp");
+//     await next();
+// });
 
 app.UseAuthentication();
 app.UseAuthorization();
