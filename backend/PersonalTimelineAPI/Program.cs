@@ -835,6 +835,20 @@ app.MapGet("/api/timeline/stats", async (TimelineDbContext db, int userId = 1) =
 .WithName("GetTimelineStats")
 .WithOpenApi();
 
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<TimelineDbContext>();
+    try
+    {
+        db.Database.EnsureCreated();
+        Console.WriteLine("✅ Database initialized successfully");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"❌ Database initialization failed: {ex.Message}");
+    }
+}
+
 app.Run();
 
 // Helper method for JWT generation
