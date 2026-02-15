@@ -469,8 +469,4 @@ This project demonstrates:
 - React Context API for state management
 - Responsive web design
 
-## 🎥 Video Link
-
-https://youtu.be/wMq9-TZ7onk
-
 ---
