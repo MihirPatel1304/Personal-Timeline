@@ -17,13 +17,21 @@ WORKDIR /app
 # Create data directory for SQLite
 RUN mkdir -p /var/data
 
+# Install dotnet-ef tool for migrations
+RUN dotnet tool install --global dotnet-ef --version 8.*
+ENV PATH="${PATH}:/root/.dotnet/tools"
+
 # Copy published app
 COPY --from=build /app/out .
 
-# Expose port (Render will set PORT env variable)
+# Copy migration files
+COPY --from=build /app/Migrations ./Migrations
+
+# Expose port
 EXPOSE 8080
 
-# Set environment variable for ASP.NET to listen on the right port
+# Set environment variable
 ENV ASPNETCORE_URLS=http://0.0.0.0:${PORT:-8080}
 
-ENTRYPOINT ["dotnet", "PersonalTimelineAPI.dll"]
+# Run migrations and start app
+CMD dotnet ef database update && dotnet PersonalTimelineAPI.dll
