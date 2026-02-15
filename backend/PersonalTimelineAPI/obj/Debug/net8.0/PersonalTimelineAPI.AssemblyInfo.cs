@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PersonalTimelineAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d95c096c44b7934b832c0cafdb6176af104f5bb")]
 [assembly: System.Reflection.AssemblyProductAttribute("PersonalTimelineAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PersonalTimelineAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
